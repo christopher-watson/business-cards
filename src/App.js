@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import User from "./pages/User";
+import Events from "./pages/Events";
 
 const App = () => (
   <Router>
@@ -18,6 +19,7 @@ const App = () => (
         <Route exact path="/discover" component={Discover} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/user" component={User} />
+        <Route exact path="/events" component={Events} />
       </Wrapper>
       <Footer />
     </div>
