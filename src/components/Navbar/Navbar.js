@@ -55,8 +55,28 @@ const Navbar = props => (
           User
         </Link>
       </li>
+      <li
+      className={
+        window.location.pathname === "/events"
+          ? "nav-item active"
+          : "nav-item"
+      }
+    >
+      <Link to="/events" className="nav-link">
+        Events
+      </Link>
+    </li>
       </ul>
     </div>
+
+
+
+    <button id="modalSignup" type='button' className="btn btn-outline-dark btn-sm mr-2" data-toggle="modal" data-target="#pSignup">Sign up</button>
+
+    <button id="modalLogin" type='button' className="btn btn-outline-dark btn-sm mr-2" data-toggle="modal" data-target="#pLogin">Login</button>
+
+
+
   </nav>
 );
 
