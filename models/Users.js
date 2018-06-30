@@ -4,35 +4,37 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   Name: { 
     type: String, 
-    required: true 
+    default: 'No Name'
+  },
+  Password:{
+    type: String,
+    default: 'password'
   },
   Email: { 
     type: String, 
-    required: true 
+    default: 'No Email'
+  },
+  Code: {
+    type: String,
   },
   Photo: { 
     type: String, 
-    required: true 
+    default: 'http://res.cloudinary.com/yowats0n/image/upload/v1527687540/default_user.png'
   },
   Phone: { 
     type: String, 
-    required: true 
   },
   Twitter: { 
     type: String, 
-    required: true 
   },
   Fb: { 
     type: String, 
-    required: true 
   },
   Link: { 
     type: String, 
-    required: true 
   },
   Git: { 
     type: String, 
-    required: true 
   }
 });
 
