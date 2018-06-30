@@ -58,7 +58,7 @@ class Discover extends Component {
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
         <h1 className="text-center">
-          Made friends with {this.state.matchCount} pups so far!
+          Made friends with {this.state.matchCount} pups
         </h1>
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
           Yay! That Pup Liked You Too!!!
