@@ -32,7 +32,7 @@ const Navbar = props => (
           <Link to="/discover" className="nav-link">
             Discover
           </Link>
-        </li>
+        </li> 
         <li
           className={
             window.location.pathname === "/search"
