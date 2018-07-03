@@ -1,23 +1,120 @@
-import React from "react";
-import Hero from "../components/Hero";
+import React, { Component } from "react";
+import API from "../utils/API";
 import Container from "../components/Container";
-import Row from "../components/Row";
-import Col from "../components/Col";
+import SearchForm from "../components/SearchForm";
+import SearchResults from "../components/SearchResults";
+import Alert from "../components/Alert";
 
-const User = () => (
-    <div>
-    <Hero backgroundImage="https://cdn.makeawebsitehub.com/wp-content/uploads/2016/04/social_media.jpg">
-      <h1>Social Swap</h1>
-      <h2>The One Stop Shop for Networking!</h2>
-    </Hero>
-    <Container style={{ marginTop: 30 }}>
-      <Row>
-        <Col size="md-12">
-          <h1>User info!</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col size="md-12">
+class User extends Component {
+  state = {
+      name: "",
+      photo: "",
+      email: "",
+      phone: "",
+      twitter: "",
+      fb: "",
+      linked: "",
+      github: "",
+      error: "",
+  };
+
+  componentDidMount() {
+    // API.get
+    // get user info if exists
+  }
+
+  handleInputChange = event => {
+    // console.log(event.target)
+    const { name , value } = event.target;
+    this.setState({ 
+
+        [name]: value
+      
+      // photo: event.target.photo.value,
+      // email: event.target.email.value,
+      // phone: event.target.phone.value,
+      // twitter: event.target.twitter.value,
+      // fb: event.target.fb.value,
+      // linked: event.target.linked.value,
+      // github: event.target.github.value,
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.updateUserInfo({
+      Name: this.state.name,
+      Photo: this.state.photo,
+      // Email: this.state.email,
+      // Phone: this.state.phone,
+      // Twitter: this.state.twitter,
+      // Fb: this.state.fb,
+      // Link: this.state.linked,
+      // Git: this.state.git
+    })
+  };
+
+  render() {
+    console.log(this.state.userData)
+    return (
+      <div>
+        <Container style={{ minHeight: "80%" }}>
+          <h1 className="text-center">Search By Event!</h1>
+          <Alert
+            type="danger"
+            style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
+          >
+            {this.state.error}
+          </Alert>
+          <SearchForm 
+          name={this.state.name}
+          photo={this.state.photo}
+            // userData = {this.state.userData}
+            // name={this.state.userData}
+            handleInputChange = {this.handleInputChange}
+          />
+          <SearchResults results={this.state.results} />
+        </Container>
+      </div>
+    );
+  }
+}
+
+export default User;
+
+
+
+// import React from "react";
+// import Hero from "../components/Hero";
+// import Container from "../components/Container";
+// import Row from "../components/Row";
+// import Col from "../components/Col";
+// import SearchForm from '../components/SearchForm';
+
+// const User = () => (
+//     <div>
+//     <Hero backgroundImage="https://cdn.makeawebsitehub.com/wp-content/uploads/2016/04/social_media.jpg">
+//       <h1>Social Swap</h1>
+//       <h2>The One Stop Shop for Networking!</h2>
+//     </Hero>
+//     <Container style={{ marginTop: 30 }}>
+//       <Row>
+//         <Col size="md-12">
+//           <h1>User info!</h1>
+//         </Col>
+//       </Row>
+//       <Row>
+//         <SearchForm />
+
+//       </Row>
+//     </Container>
+//   </div>
+// );
+
+//  export default User;
+
+
+         {/* <Col size="md-12">
          
 
       <form>
@@ -102,10 +199,4 @@ const User = () => (
 
 
         
-        </Col>
-      </Row>
-    </Container>
-  </div>
-);
-
- export default User;
+        </Col> */}
